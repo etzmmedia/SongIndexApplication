@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Song Index Application</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            #navBarSearchForm input[type=text]{width:730px !important; margin: 50px;}
+            #resultTable {width: 95% !important; margin: 0px auto;}
+            h1 {margin-left: 70px; margin-top: 150px;}
+            h5 {margin-left: 130px; margin-top: 80px; margin-right: 130px;}
+            .footer {position: absolute; right: 0; bottom: 0; left: 0; padding: 1rem; background-color: #efefef; text-align: center;}
+            .to-top {background: grey; position: fixed; bottom: 36px; right:32px; width:50px; height:50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size:32px; color:#1f1f1f; text-decoration: none; opacity:0; pointer-events: none; transition: all .4s;}
+            .to-top.active {bottom:80px; pointer-events: auto; opacity:1;}
+        </style>
+    </head>
+    <body>
+        <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="http://www.endtimezionministries.org/">
+                <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                ETZM
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="SongIndexApplication.html">Home <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="add.html">Add Song <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="modify.html">Modify Song <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="#">About <span class="sr-only"></span></a>
+                <a class="nav-item nav-link disabled mr-sm-2" href="#">Logout</a>
+              </div>
+            </div>
+        </nav>
+    </div>
+    <h1>About</h1>
+    <h5>
+        Song Index Application is developed by ETZC Media Team.<br><br>
+        It's a simple webpage that provides an interface to access PowerPoint files easily.
+        It's built with a couple of bootstrap code and font awesome icons. The idea is to provide a convenient interface for Media Presenter 
+        to quickly access songbook.<br><br>
+        This is how it works.<br><br>
+        The PowerPoint files were prepared already and saved in a local directory, named as song number respectively. 
+        The JSON file contains the song name and number. The webpage gives you a list of song name with their corresponding song number.
+        On clicking a song name, it maps to the corresponding song PowerPoint file with song number and opens it.<br><br>
+        It is as simple as that.
+    </h5>
+    <div class="fixed-bottom"><div class="footer">&copy; endtimezionministries.org 2020 | Developed with &#10084; ETZC Media Team</div></div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/676c690b06.js" crossorigin="anonymous"></script>
+</html>

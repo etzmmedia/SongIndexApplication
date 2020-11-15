@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Song Index Application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            #navBarSearchForm input[type=text]{width:730px !important; margin: 50px;}
+            #resultTable {width: 95% !important; margin: 0px auto;}
+            h1 {margin-left: 50px; margin-top: 70px;}
+            h5 {margin-left: 100px; margin-top: 30px;}
+            h4 {float: right; margin-right: 50px;}
+            .footer {position: absolute; right: 0; bottom: 0; left: 0; padding: 1rem; background-color: #efefef; text-align: center;}
+            .to-top {background: grey; position: fixed; bottom: 36px; right:32px; width:50px; height:50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size:32px; color:#1f1f1f; text-decoration: none; opacity:0; pointer-events: none; transition: all .4s;}
+            .to-top.active {bottom:80px; pointer-events: auto; opacity:1;}
+        </style>
+    </head>
+    <body>
+        <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="http://www.endtimezionministries.org/">
+                <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                ETZM
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="add.html">Add Song <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="modify.html">Modify Song <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="about.html">About <span class="sr-only"></span></a>
+                <a class="nav-item nav-link disabled mr-sm-2" href="#">Logout</a>
+              </div>
+            </div>
+        </nav>
+    </div>
+        <h1>Song Index Application</h1>
+        <h4>Get fonts <a href="Fonts.rar">here</a></h4>
+        <h5>some important keywords: yaesu | siyon | allaeluya</h5>
+        <form class="form-inline my-2 my-lg-0 justify-content-center" id="navBarSearchForm">
+            <input class="form-control mr-sm-2" type="text" id="search" name="search" placeholder="search by song name or song number" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+        </form>
+        <table class="table table-striped justify-content-center" id="resultTable">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Song Name</th>
+                <th scope="col">Tamil Name</th>
+                <th scope="col">Chord</th>
+              </tr>
+            </thead>
+            <tbody id="result">
+            </tbody>
+          </table>
+          <a href="#" class="to-top"><i class="fas fa-chevron-up" style="color:rgb(255, 255, 255);"></i></a>
+          <div class="fixed-bottom"><div class="footer">&copy; endtimezionministries.org 2020 | Developed with &#10084; ETZC Media Team</div></div>
+    </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.24.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.24.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="script/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="script/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="script/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="script/jquery.min.js"></script>
+    <script src="script/676c690b06.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                $('#result').html('');
+                var searchField = $('#search').val();
+                var expression = new RegExp(searchField, "i");
+                $.getJSON('data.json', function(data){
+                    $.each(data, function(key, value) {
+                        if(value.songName.search(expression) != -1 || value.songNumber.search(expression) != -1) {
+                            $('#result').append('<tr><th scope="row">' + value.songNumber + '</th><td><a href="PPTs/' + value.songNumber + '.pptx">' + value.songName + '</a></td><td>' + value.tamilName + '</td><td>' + value.chord + '</td></tr>');
+                        }
+                    });
+                })
+            });
+        });
+    </script>
+    <script>
+        const toTop = document.querySelector(".to-top");
+  
+        window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 100) {
+            toTop.classList.add("active");
+        } else {
+            toTop.classList.remove("active");
+        }
+        })
+    </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Song Index Application</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            #navBarSearchForm input[type=text]{width:730px !important; margin: 50px;}
+            #resultTable {width: 95% !important; margin: 0px auto;}
+            h1 {margin-left: 70px; margin-top: 150px;}
+            h5 {margin-left: 130px; margin-top: 80px; margin-right: 130px;}
+            .footer {position: absolute; right: 0; bottom: 0; left: 0; padding: 1rem; background-color: #efefef; text-align: center;}
+            .to-top {background: grey; position: fixed; bottom: 36px; right:32px; width:50px; height:50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size:32px; color:#1f1f1f; text-decoration: none; opacity:0; pointer-events: none; transition: all .4s;}
+            .to-top.active {bottom:80px; pointer-events: auto; opacity:1;}
+            form {margin: 100px;}
+        </style>
+    </head>
+    <body>
+        <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="http://www.endtimezionministries.org/">
+                <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                ETZM
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="SongIndexApplication.html">Home <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="add.html">Add Song <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="modify.html">Modify Song <span class="sr-only">(currently)</span></a>
+                <a class="nav-item nav-link active" href="about.html">About <span class="sr-only"></span></a>
+                <a class="nav-item nav-link disabled mr-sm-2" href="#">Logout</a>
+              </div>
+            </div>
+        </nav>
+    </div>
+    <h1>Modify Song Details</h1>
+    <form>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Song Number</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" placeholder="enter a valid song number" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Song Name (in english)</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="please consider to use upper camel casing" required>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Song Name (in tamil)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="browse tamil name from web" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Attach Corresponding File (.pptx only)</label>
+            <div class="col-sm-10">
+                <div class="file-upload-wrapper">
+                    <input type="file" id="input-file-now" class="file-upload" />
+                  </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Add Song</button>
+          </div>
+        </div>
+      </form>
+    <div class="fixed-bottom"><div class="footer">&copy; endtimezionministries.org 2020 | Developed with &#10084; ETZC Media Team</div></div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/676c690b06.js" crossorigin="anonymous"></script>
+</html>
